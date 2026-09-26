@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* Custom Utilities for Hard Drop Shadows (Neo-brutalism) */
+.shadow-hard {
+  box-shadow: 4px 4px 0px #000000;
+}
+
+.shadow-hard-lg {
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.shadow-hard-xl {
+  box-shadow: 8px 8px 0px #000000;
+}
+
+.shadow-hard-yellow {
+  box-shadow: 6px 6px 0px #FACC15;
+}
+
+/* Smooth micro-interactions */
+.btn-neo {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-neo:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #000000;
+}
+
+.btn-neo:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px #000000;
+}
+
+/* Live Higher or Lower styles & animations extracted from higherorlowergame.com */
+@keyframes scale-up-bounce {
+  0% { transform: scale(0); }
+  80% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(120%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  0% { transform: translateY(-120%); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.animate-scale-up-bounce {
+  animation: scale-up-bounce 0.45s cubic-bezier(1, 1.015, 1.07, 1.39) backwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s cubic-bezier(1, 1.015, 1.07, 1.39) forwards;
+}
+
+.font-geologica {
+  font-family: 'Geologica', 'Geologica Roman', sans-serif;
+}
