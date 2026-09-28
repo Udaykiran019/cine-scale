@@ -28,17 +28,13 @@ export const LandingView: React.FC<LandingViewProps> = ({
   return (
     <div className="min-h-screen w-full bg-[#FACC15] text-black flex flex-col items-center justify-between px-6 py-10 relative overflow-hidden select-none">
       {/* Top Header / Back link */}
-      <header className="w-full max-w-4xl flex flex-wrap items-center justify-between gap-3 z-10">
+      <header className="w-full max-w-4xl flex items-center justify-between z-10">
         <button
           onClick={onBackToHome}
           className="flex items-center gap-2 bg-white text-black font-extrabold text-xs md:text-sm px-4 py-2 rounded-lg border-2 border-black shadow-[3px_3px_0px_#000000] hover:shadow-[5px_5px_0px_#000000] hover:-translate-y-0.5 active:translate-y-0.5 active:shadow-[1px_1px_0px_#000000] transition-all cursor-pointer"
         >
           <span>←</span> Back to Industries
         </button>
-
-        <span className="text-xs sm:text-sm md:text-base font-black tracking-tight uppercase text-black hidden sm:inline text-center">
-          Higher or Lower: Indian Cinema Edition
-        </span>
 
         <div className="flex items-center gap-3">
           <span className="bg-black text-white font-black text-xs md:text-sm px-4 py-2 rounded-lg shadow-[3px_3px_0px_rgba(0,0,0,0.25)] uppercase tracking-wider">
@@ -54,13 +50,16 @@ export const LandingView: React.FC<LandingViewProps> = ({
 
       {/* Main Hero Section */}
       <main className="w-full max-w-2xl flex flex-col items-center text-center my-auto py-8 z-10">
-        {/* Game Logo Centered */}
-        <div className="w-full max-w-md mb-8 flex justify-center">
+        {/* Game Logo & Title */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-8">
           <img
             src="/logo.svg"
-            alt="Higher or Lower: Indian Cinema Edition"
-            className="w-80 md:w-96 drop-shadow-[0_12px_24px_rgba(0,0,0,0.2)] hover:scale-105 transition-transform duration-200"
+            alt="Clapperboard Icon"
+            className="w-16 h-16 sm:w-20 sm:h-20 drop-shadow-[0_12px_24px_rgba(0,0,0,0.2)] hover:scale-105 transition-transform duration-200 object-contain"
           />
+          <span className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-black text-center sm:text-left leading-tight">
+            Higher or Lower: <span className="block sm:inline">Indian Cinema Edition</span>
+          </span>
         </div>
 
         {/* Bold Text */}

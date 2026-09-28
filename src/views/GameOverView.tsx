@@ -29,12 +29,17 @@ export const GameOverView: React.FC<GameOverViewProps> = ({
   return (
     <div className="min-h-screen w-full bg-[#18181b] text-white flex flex-col items-center justify-center px-4 py-12 select-none">
       <div className="w-full max-w-md flex flex-col items-center text-center">
-        {/* Game Logo */}
-        <img
-          src="/logo.svg"
-          alt="Higher or Lower: Indian Cinema Edition"
-          className="w-64 mb-8 drop-shadow-lg"
-        />
+        {/* Game Logo & Title */}
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
+          <img
+            src="/logo.svg"
+            alt="Clapperboard Icon"
+            className="w-14 h-14 sm:w-16 sm:h-16 object-contain drop-shadow-lg shrink-0"
+          />
+          <span className="text-xl sm:text-2xl font-black uppercase tracking-tight text-white text-center sm:text-left leading-tight">
+            Higher or Lower: <span className="text-yellow-400 block sm:inline">Indian Cinema Edition</span>
+          </span>
+        </div>
 
         {/* Game Over Title Badge */}
         <div className="bg-rose-500 text-white font-black text-xs md:text-sm uppercase tracking-widest px-4 py-1.5 rounded-full border-2 border-black shadow-[3px_3px_0px_#000] mb-4">

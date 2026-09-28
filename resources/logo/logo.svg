@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 120" width="100%" height="100%">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 115 115" width="100%" height="100%">
   <defs>
     <!-- Filter for subtle drop shadow -->
     <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
@@ -18,21 +18,7 @@
     <path d="M 91 25 L 98 25 L 95 30 L 95 40 L 82 40 Z" fill="#000000"/>
     <line x1="15" y1="40" x2="100" y2="40" stroke="#000000" stroke-width="4"/>
 
-    <!-- Up / Down Arrow Scale Icons inside badge -->
     <!-- Up Arrow (Higher) -->
     <polygon points="40,75 58,52 76,75 66,75 66,90 50,90 50,75" fill="#000000"/>
-  </g>
-
-  <!-- Main Text Typography -->
-  <!-- "CINE" in stark white/black -->
-  <text x="120" y="75" font-family="'Plus Jakarta Sans', 'Arial Black', sans-serif" font-weight="900" font-size="58" letter-spacing="-1" fill="#FFFFFF" stroke="#000000" stroke-width="3" paint-order="stroke fill">CINE</text>
-  
-  <!-- "SCALE" in bold golden-yellow -->
-  <text x="272" y="75" font-family="'Plus Jakarta Sans', 'Arial Black', sans-serif" font-weight="900" font-size="58" letter-spacing="-1" fill="#FACC15" stroke="#000000" stroke-width="3" paint-order="stroke fill">SCALE</text>
-
-  <!-- Subtitle pill badge -->
-  <g transform="translate(122, 85)">
-    <rect x="0" y="0" width="220" height="22" rx="6" fill="#000000"/>
-    <text x="110" y="15" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" letter-spacing="2.5" fill="#FACC15" text-anchor="middle">HIGHER OR LOWER</text>
   </g>
 </svg>

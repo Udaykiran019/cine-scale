@@ -43,18 +43,18 @@ const INDUSTRIES: Industry[] = [
 export const HomeView: React.FC<HomeViewProps> = ({ onSelectIndustry }) => {
   return (
     <div className="min-h-screen w-full bg-[#1e1e24] text-white flex flex-col items-center justify-center px-4 py-12">
-      {/* Navigation Header / Game Logo */}
-      <header className="w-full max-w-2xl flex flex-col items-center justify-center mb-8 px-4 text-center">
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-4">
+      {/* Main Header / Logo */}
+      <header className="w-full max-w-3xl flex items-center justify-center mb-8 px-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-center sm:text-left">
           <img
             src="/logo.svg"
-            alt="Higher or Lower: Indian Cinema Edition"
-            className="w-48 sm:w-64 md:w-80 drop-shadow-[0_10px_25px_rgba(0,0,0,0.6)] hover:scale-105 transition-transform duration-200"
+            alt="Clapperboard Icon"
+            className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 drop-shadow-md object-contain shrink-0"
           />
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-black uppercase tracking-tight text-white leading-tight">
+            Higher or Lower: <span className="text-[#FACC15] block sm:inline">Indian Cinema Edition</span>
+          </h1>
         </div>
-        <h1 className="text-lg md:text-xl font-black uppercase tracking-tight text-yellow-400 text-center flex flex-wrap justify-center items-center gap-1">
-          Higher or Lower: Indian Cinema Edition
-        </h1>
       </header>
 
       {/* Centered Heading */}

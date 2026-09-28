@@ -156,7 +156,7 @@ async function fetchOmdbRating(imdbId) {
 
 async function main() {
   console.log('====================================================');
-  console.log('    OMDb Live Rating Update Pipeline (CineScale)    ');
+  console.log('    OMDb Live Rating Update Pipeline (Higher or Lower: Indian Cinema Edition)    ');
   console.log('====================================================');
 
   if (!fs.existsSync(CSV_FILE_PATH)) {
