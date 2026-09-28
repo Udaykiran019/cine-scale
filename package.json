@@ -8,6 +8,7 @@
     "preview": "vite preview",
     "enrich": "node enrich_movies.js",
     "enrich:south": "node enrich_south_movies.js",
+    "update:ratings": "node update_omdb_ratings.js",
     "seed": "node seed_movies.js",
     "cleanup": "node cleanup_supabase.js",
     "test": "echo \"Error: no test specified\" && exit 1"

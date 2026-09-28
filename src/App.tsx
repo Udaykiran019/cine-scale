@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ViewState, Language, Movie } from './types/game';
 import { fetchMoviePool, getHighScore, saveHighScore } from './services/movieService';
 import { HomeView } from './views/HomeView';
@@ -24,6 +24,7 @@ export const App: React.FC = () => {
   const [isEvaluating, setIsEvaluating] = useState<boolean>(false);
   const [revealedRatingB, setRevealedRatingB] = useState<number | null>(null);
   const [lastGuessCorrect, setLastGuessCorrect] = useState<boolean | null>(null);
+  const evaluationTimerRef = useRef<NodeJS.Timeout | null>(null);
 
   // Sync high score on initial load and language change
   useEffect(() => {
@@ -87,7 +88,7 @@ export const App: React.FC = () => {
       }
 
       // Transition after brief reveal
-      setTimeout(() => {
+      evaluationTimerRef.current = setTimeout(() => {
         // Slide Movie B into Movie A position
         setMovieA(movieB);
 
@@ -102,19 +103,35 @@ export const App: React.FC = () => {
         setRevealedRatingB(null);
         setLastGuessCorrect(null);
         setIsEvaluating(false);
+        evaluationTimerRef.current = null;
       }, 1200);
     } else {
       // Wrong guess -> transition to gameover
-      setTimeout(() => {
+      evaluationTimerRef.current = setTimeout(() => {
         saveHighScore(score, selectedLanguage);
         setIsEvaluating(false);
         setViewState('gameover');
+        evaluationTimerRef.current = null;
       }, 1200);
     }
   };
 
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (evaluationTimerRef.current) {
+        clearTimeout(evaluationTimerRef.current);
+      }
+    };
+  }, []);
+
   // Navigation callbacks
   const handleBackToHome = () => {
+    if (evaluationTimerRef.current) {
+      clearTimeout(evaluationTimerRef.current);
+      evaluationTimerRef.current = null;
+    }
+    setIsEvaluating(false);
     setViewState('home');
   };
 

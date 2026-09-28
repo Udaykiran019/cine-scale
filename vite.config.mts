@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   envPrefix: ['VITE_', 'SUPABASE_'],
   server: {
-    port: 3000,
+    port: 5173,
     open: false
   }
 });

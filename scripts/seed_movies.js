@@ -105,6 +105,15 @@ async function seedMovies() {
   console.log(records[0]);
   console.log('');
 
+  // Wipe existing rows to prevent duplicates
+  console.log('Wiping existing rows from Supabase movies table...');
+  const { error: wipeError } = await supabase.from('movies').delete().neq('id', 0);
+  if (wipeError) {
+    console.error('Error wiping movies table:', wipeError.message);
+  } else {
+    console.log('Existing records wiped successfully.');
+  }
+
   // Batch insert
   let totalUploaded = 0;
   const errors = [];

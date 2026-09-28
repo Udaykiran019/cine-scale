@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Movie } from '../types/game';
 
 interface PlayingViewProps {
@@ -27,6 +27,16 @@ export const PlayingView: React.FC<PlayingViewProps> = ({
   const [selectedGuess, setSelectedGuess] = useState<'higher' | 'lower' | null>(null);
   const [rollingRating, setRollingRating] = useState<number>(0);
   const [isRollFinished, setIsRollFinished] = useState<boolean>(false);
+  const evaluationTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Cleanup timeout whenever the PlayingView component unmounts
+  useEffect(() => {
+    return () => {
+      if (evaluationTimerRef.current) {
+        clearTimeout(evaluationTimerRef.current);
+      }
+    };
+  }, []);
 
   // TMDb Image URL generator with fallback
   const getPosterUrl = (posterPath: string | null) => {
@@ -86,6 +96,18 @@ export const PlayingView: React.FC<PlayingViewProps> = ({
     onGuess(isHigher);
   };
 
+  const handleGuess = (isHigher: boolean) => {
+    handleButtonClick(isHigher);
+  };
+
+  const handleBackToHome = () => {
+    if (evaluationTimerRef.current) {
+      clearTimeout(evaluationTimerRef.current);
+      evaluationTimerRef.current = null;
+    }
+    onBackToHome();
+  };
+
   // Determine active border state on Right Pane (Movie B)
   const getBorderClass = () => {
     if (!isEvaluating || selectedGuess === null) return 'border-transparent';
@@ -102,7 +124,7 @@ export const PlayingView: React.FC<PlayingViewProps> = ({
       {/* Top Left: Exit & High Score Counter */}
       <div className="absolute top-3 left-3 md:top-4 md:left-4 z-40 flex items-center gap-2 md:gap-3">
         <button
-          onClick={onBackToHome}
+          onClick={handleBackToHome}
           className="bg-black/80 hover:bg-black text-white font-bold text-xs px-3 py-1.5 rounded border border-white/30 backdrop-blur-md shadow-[2px_2px_0px_#000000] transition cursor-pointer"
           title="Exit to Main Menu"
         >
