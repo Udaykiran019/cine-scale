@@ -32,7 +32,7 @@ export const GameOverView: React.FC<GameOverViewProps> = ({
         {/* Game Logo */}
         <img
           src="/logo.svg"
-          alt="Cine-Scale Logo"
+          alt="Higher or Lower: Indian Cinema Edition"
           className="w-64 mb-8 drop-shadow-lg"
         />
 
