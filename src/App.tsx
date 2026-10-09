@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { ViewState, Language, Movie } from './types/game';
 import { fetchMoviePool, getHighScore, saveHighScore } from './services/movieService';
 import { HomeView } from './views/HomeView';
@@ -178,6 +179,7 @@ export const App: React.FC = () => {
           onChangeIndustry={handleBackToHome}
         />
       )}
+      <Analytics />
     </div>
   );
 };
